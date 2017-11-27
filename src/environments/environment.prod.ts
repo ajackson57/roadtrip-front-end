@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiServer: 'http://localhost:4741'
+  apiOrigin: 'https://calm-brook-66488.herokuapp.com/'
 };

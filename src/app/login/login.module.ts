@@ -21,7 +21,7 @@ import { LogoutComponent } from './logout/logout.component'
     RouterModule.forRoot([
         { path: 'signin', component: SigninComponent },
         { path: 'signup', component: SignupComponent },
-        { path: 'changepassword', component: ChangepasswordComponent }
+        { path: 'changepassword', component: ChangepasswordComponent },
         { path: 'logout', component: LogoutComponent }
       ]),
     CommonModule,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from '../environments/environment'
 import { LoginModule } from './login/login.module';
 
 @Component({
@@ -8,4 +9,5 @@ import { LoginModule } from './login/login.module';
 })
 export class AppComponent {
   title = 'app';
+  apiOrgin = environment.apiOrigin;
 }
