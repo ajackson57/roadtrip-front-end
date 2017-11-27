@@ -17,10 +17,10 @@ This project provides the frontend for a basic roadtrip (could be walking tour) 
   handlebar tamplates.
 - **Ruby on Rails** - The backend server was developed with Ruby's Rails
   framework. Ajax used on the frontend to make requests of the Rails server.
-- [ERD for backend DB](https://github.com/ajackson57/aj-networking-contacts-frontend/blob/master/GA-WDI-Project2-ERD.pdf)
+- [ERD for backend DB](https://github.com/ajackson57/roadtrip-backend/blob/master/GA-WDI-Capstone.pdf)
 
 ## The Devlopment Story
-[Initial Schedule](https://github.com/ajackson57/aj-networking-contacts-frontend/blob/master/Schedule.pdf)
+[Initial Schedule](https://github.com/ajackson57/roadtrip-frontend/blob/master/Capstone%20Roadtrip%20Tasks.pdf)
  - **The Development Process**
  - The development process started with some rough wireframes, some user
    stories, and a quick planning outline. I divided development into feature
@@ -37,4 +37,4 @@ This project provides the frontend for a basic roadtrip (could be walking tour) 
 
 ## Wireframes and User Stories.
 - [Wire Frames](https://github.com/ajackson57/roadtrip-frontend/blob/master/roadtrip.pdf)
-- [User Stories](https://github.com/ajackson57/aj-networking-contacts-frontend/blob/master/user-stories.md)
+- [User Stories](https://github.com/ajackson57/roadtrip-frontend/blob/master/Capstone%20Roadtrip%20User%20Stories.pdf)
