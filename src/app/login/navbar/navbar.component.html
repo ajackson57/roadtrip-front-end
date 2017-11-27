@@ -1,0 +1,17 @@
+<nav class='navbar navbar-inverse'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <a class='navbar-brand'>Roadtrip</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li id="sign-in-menu"><a [routerLink]="['/signin']"><span class="glyphicon glyphicon-log-in"></span>Sign-In</a></li>
+      <li id="sign-up-menu"><a [routerLink]="['/signup']"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+      <li id="sign-out-menu"><a [routerLink]="['/logout']"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+      <li id="change-password-menu"><a [routerLink]="['/changepassword']"><span class="glyphicon glyphicon-wrench"></span>Change Password</a></li> -->
+    </ul>
+  </div>
+</nav>
+<div class='container'>
+   <router-outlet></router-outlet>
+
+</div>
