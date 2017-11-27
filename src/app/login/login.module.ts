@@ -15,6 +15,7 @@ import { LogoutComponent } from './logout/logout.component'
     SignupComponent,
     ChangepasswordComponent,
     NavbarComponent,
+    LoginComponent,
     LogoutComponent
   ],
   imports: [
