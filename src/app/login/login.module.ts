@@ -6,6 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login.component'
 import { LogoutComponent } from './logout/logout.component'
 
 
