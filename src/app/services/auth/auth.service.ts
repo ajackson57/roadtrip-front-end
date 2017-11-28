@@ -10,9 +10,7 @@ import { environment } from '../../../environments/environment';
 export class AuthService {
   user: any
 
-  constructor(
-    private http: Http
-  ) { }
+  constructor( private http: Http ) { }
 
   getUserToken() {
     return this.user.token

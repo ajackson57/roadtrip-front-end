@@ -5,3 +5,4 @@
   <input [(ngModel)]="newUser.password_confirmation" type="text" placeholder="Confirm Passsword"/>
   <input (click)="signUp()" type="submit" value="Sign Up"/>
 </div>
+<div *ngIf="auth.user" class="container">I see a user!!! <strong>{{auth.user.email}}</strong></div>
