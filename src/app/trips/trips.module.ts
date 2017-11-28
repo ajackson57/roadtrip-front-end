@@ -2,21 +2,31 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TripComponent } from './trip.component';
-import { TripListComponent } from './trip-list.component';
-import { MarkerComponent } from './marker.component';
-import { MarkerListComponent } from './marker-list.component';
+import { TripShowComponent } from './trip-show/trip-show.component';
+import { TripIndexComponent } from './trip-index/trip-index.component';
+import { TripEditComponent } from './trip-edit/trip-edit.component';
+import { TripNewComponent } from './trip-new/trip-new.component';
 import { TripServiceService } from './trip-service.service';
 
 @NgModule({
   imports: [
-    RouterModule.forRoot([
-        { path: 'trips', component: TripListComponent }
-      ]),
+    // RouterModule.forRoot([
+    //     { path: 'trips', component: TripListComponent }
+    //   ]),
+      RouterModule.forChild([
+        { path: 'trips', component: TripIndexComponent },
+        { path: 'trips/:id', component: TripShowComponent },
+        { path: 'trips/new', component: TripNewComponent },
+        { path: 'trips/edit', component: TripEditComponent }
+
+    ]),
     CommonModule,
     FormsModule
   ],
-  declarations: [TripComponent, TripListComponent, MarkerComponent, MarkerListComponent],
+  declarations: [TripIndexComponent,
+                 TripShowComponent,
+                 TripEditComponent,
+                 TripNewComponent],
   providers: [TripServiceService]
 })
 export class TripsModule { }

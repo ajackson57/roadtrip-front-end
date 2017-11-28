@@ -1,0 +1,31 @@
+<div *ngIf="tripservice.trips" class="container">
+  <div>I see trips:</div>
+  <div class='table-responsive'>
+      <table class='table'
+              *ngIf='tripservice.trips && tripservice.trips.length'>
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Center Lat</th>
+                  <th>Center lng</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor='let trip of tripservice.trips'>
+                  <!-- <td>{{ trip.name }}</td> -->
+                  <td><a [routerLink]="['/trips', trip.id]">
+                                {{ trip.name }}
+                            </a>
+						      </td>
+                  <td>{{ trip.description }}</td>
+                  <td>{{ trip.center_lat}}</td>
+                  <td>{{ trip.center_lng}}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+    <div>
+      <a class="btn" routerLink="/trips/new">Add Trip</a>
+    </div>
+</div>

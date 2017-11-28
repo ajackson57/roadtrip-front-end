@@ -6,7 +6,6 @@
 </div>
 <div *ngIf="auth.user" class="container">
   <div>I see a user!!! <strong>{{auth.user.email}}</strong></div>
-  <!-- <app-trip-list></app-trip-list> -->
   <a [routerLink]="['/trips']">Trips</a>
 </div>
 <!-- <div class="col-md-6 col-md-offset-3">

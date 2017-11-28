@@ -10,6 +10,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class TripServiceService {
   trips: any
+  trip: any;
 
   constructor( private http: Http,  public auth: AuthService ) { }
 
@@ -23,6 +24,20 @@ export class TripServiceService {
       .subscribe(
         response => {
         this.trips = JSON.parse(response['_body']).trips
+       },
+       err => console.log(err)
+      )
+  }
+  getTrip(id: number) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+    // Make the delete request to URL, and add the token from Config.
+    this.http.get(environment.apiOrigin + '/trips/' + id, config)
+      .subscribe(
+        response => {
+        this.trip = JSON.parse(response['_body']).trip
        },
        err => console.log(err)
       )

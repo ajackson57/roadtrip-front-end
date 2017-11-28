@@ -21,6 +21,7 @@ import { LogoutComponent } from './logout/logout.component'
     LogoutComponent
   ],
   imports: [
+    TripsModule,
     RouterModule.forRoot([
         { path: 'signin', component: SigninComponent },
         { path: 'signup', component: SignupComponent },

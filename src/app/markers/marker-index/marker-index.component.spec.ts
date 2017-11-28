@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TripListComponent } from './trip-list.component';
+import { MarkerIndexComponent } from './marker-index.component';
 
-describe('TripListComponent', () => {
-  let component: TripListComponent;
-  let fixture: ComponentFixture<TripListComponent>;
+describe('MarkerIndexComponent', () => {
+  let component: MarkerIndexComponent;
+  let fixture: ComponentFixture<MarkerIndexComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TripListComponent ]
+      declarations: [ MarkerIndexComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TripListComponent);
+    fixture = TestBed.createComponent(MarkerIndexComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

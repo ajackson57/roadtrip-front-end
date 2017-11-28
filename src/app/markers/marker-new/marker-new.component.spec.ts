@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MarkerListComponent } from './marker-list.component';
+import { MarkerNewComponent } from './marker-new.component';
 
-describe('MarkerListComponent', () => {
-  let component: MarkerListComponent;
-  let fixture: ComponentFixture<MarkerListComponent>;
+describe('MarkerNewComponent', () => {
+  let component: MarkerNewComponent;
+  let fixture: ComponentFixture<MarkerNewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarkerListComponent ]
+      declarations: [ MarkerNewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MarkerListComponent);
+    fixture = TestBed.createComponent(MarkerNewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
