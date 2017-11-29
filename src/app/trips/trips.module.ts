@@ -15,9 +15,11 @@ import { TripServiceService } from './trip-service.service';
     //   ]),
       RouterModule.forChild([
         { path: 'trips', component: TripIndexComponent },
-        { path: 'trips/:id', component: TripShowComponent },
         { path: 'trips/new', component: TripNewComponent },
-        { path: 'trips/edit', component: TripEditComponent }
+        { path: 'trips/edit', component: TripEditComponent },
+        { path: 'trips/map', component: TripEditComponent },
+        { path: 'trips/delete', component: TripEditComponent },
+        { path: 'trips/:id', component: TripShowComponent }
 
     ]),
     CommonModule,

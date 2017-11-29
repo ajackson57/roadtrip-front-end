@@ -25,4 +25,8 @@
       </table>
     </div>
     <div>
-</div>
+      <a class="btn" [routerLink]="['/trips/edit']">Edit Trip</a>
+      <a class="btn" [routerLink]="['/trips/map']">Map Trip</a>
+      <a class="btn" (click)='onDelete()'>Delete Trip</a>
+    </div>
+  <div>

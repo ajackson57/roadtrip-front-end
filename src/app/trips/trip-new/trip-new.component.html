@@ -1,3 +1,17 @@
-<p>
-  trip-new works!
-</p>
+<h2>New Trip</h2>
+
+<form (ngSubmit)="saveTrip(newTrip)">
+  <label for="name">Name:</label>
+  <input name="name" [(ngModel)]="newTrip.name">
+
+  <label for="description">Description:</label>
+  <input name="description" [(ngModel)]="newTrip.description">
+
+  <label for="center_lat">Center Latitude:</label>
+  <input name="center_lat" [(ngModel)]="newTrip.center_lat">
+
+  <label for="center_lng">Center Longitude:</label>
+  <input name="center_lng" [(ngModel)]="newTrip.center_lng">
+
+  <input type="submit" value="Create">
+</form>

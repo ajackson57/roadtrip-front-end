@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TripServiceService } from '../trip-service.service';
+import { ActivatedRoute, Router }   from '@angular/router';
 
 @Component({
   selector: 'app-trip-edit',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trip-edit.component.css']
 })
 export class TripEditComponent implements OnInit {
+  updatedTrip = <any>{};
 
-  constructor() { }
+  constructor(
+    private route : ActivatedRoute,
+    private router : Router,
+    private tripservice : TripServiceService
+  ) { }
 
   ngOnInit() {
+     this.updatedTrip = this.tripservice.trip;
+  }
+
+  updateTrip(updatedTrip) {
+    console.log("updating trip!");
+    this.tripservice.updateTrip(updatedTrip)
+    .subscribe(response => {
+      console.log(response.json());
+      let trip = response.json();
+      this.router.navigate(["/trips/" + trip.trip.id]);
+    });
   }
 
 }

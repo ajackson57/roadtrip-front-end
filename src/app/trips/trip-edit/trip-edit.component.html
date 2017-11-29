@@ -1,3 +1,17 @@
-<p>
-  trip-edit works!
-</p>
+<h2>Edit Trip</h2>
+
+<form (ngSubmit)="updateTrip(updatedTrip)">
+  <label for="name">Name:</label>
+  <input name="name" [(ngModel)]="updatedTrip.name">
+
+  <label for="description">Description:</label>
+  <input name="description" [(ngModel)]="updatedTrip.description">
+
+  <label for="center_lat">Center Latitude:</label>
+  <input name="center_lat" [(ngModel)]="updatedTrip.center_lat">
+
+  <label for="center_lng">Center Longitude:</label>
+  <input name="center_lng" [(ngModel)]="updatedTrip.center_lng">
+
+  <input type="submit" value="Update">
+</form>

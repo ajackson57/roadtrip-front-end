@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 import { AuthService } from '../services/auth/auth.service';
 import { environment } from '../../environments/environment';
 
@@ -35,12 +36,75 @@ export class TripServiceService {
     config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
     // Make the delete request to URL, and add the token from Config.
     this.http.get(environment.apiOrigin + '/trips/' + id, config)
+    //.map(response => this.trip = JSON.parse(response['_body']).trip);
       .subscribe(
         response => {
         this.trip = JSON.parse(response['_body']).trip
        },
        err => console.log(err)
       )
+  }
+
+  createTrip(trip) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+    let data = {
+    "trip": {
+      "name": trip.name,
+      "description": trip.description,
+      "center_lat": trip.center_lat,
+      "center_lng": trip.center_lng
+    }
+    }
+    // Make the delete request to URL, and add the token from Config.
+    return this.http.post(environment.apiOrigin + '/trips', data, config)
+      // .subscribe(
+      //   response => {
+      //   this.trip = JSON.parse(response['_body']).trip
+      //  },
+      //  err => console.log(err)
+      // )
+  }
+
+  updateTrip(trip) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+    let data = {
+    "trip": {
+      "name": trip.name,
+      "description": trip.description,
+      "center_lat": trip.center_lat,
+      "center_lng": trip.center_lng
+    }
+    }
+    // Make the delete request to URL, and add the token from Config.
+    return this.http.patch(environment.apiOrigin + '/trips/' + this.trip.id, data, config)
+      // .subscribe(
+      //   response => {
+      //   this.trip = JSON.parse(response['_body']).trip
+      //  },
+      //  err => console.log(err)
+      // )
+  }
+
+  deleteTrip(id: number) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+
+    // Make the delete request to URL, and add the token from Config.
+    return this.http.delete(environment.apiOrigin + '/trips/' + id, config)
+      // .subscribe(
+      //   response => {
+      //   this.trip = JSON.parse(response['_body']).trip
+      //  },
+      //  err => console.log(err)
+      // )
   }
 
 
