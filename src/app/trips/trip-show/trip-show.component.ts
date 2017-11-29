@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TripServiceService } from '../trip-service.service';
+import { TripService } from '../../services/trips/trip.service';
 
 @Component({
   selector: 'app-trip-show',
@@ -12,7 +12,7 @@ export class TripShowComponent implements OnInit {
    trip: any;
   constructor(private _route: ActivatedRoute,
               private _router: Router,
-              public tripservice: TripServiceService) { }
+              public tripservice: TripService) { }
 
   ngOnInit() {
     const param = this._route.snapshot.paramMap.get('id');

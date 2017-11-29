@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TripServiceService } from '../trip-service.service';
+import { TripService } from '../../services/trips/trip.service';
 
 @Component({
   selector: 'app-trip-index',
@@ -8,7 +8,7 @@ import { TripServiceService } from '../trip-service.service';
 })
 export class TripIndexComponent implements OnInit {
 
-  constructor( public tripservice: TripServiceService ) { }
+  constructor( public tripservice: TripService ) { }
 
   ngOnInit() {
     this.tripservice.getTrips()

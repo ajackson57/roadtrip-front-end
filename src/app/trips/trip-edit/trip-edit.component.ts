@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TripServiceService } from '../trip-service.service';
+import { TripService } from '../../services/trips/trip.service';
 import { ActivatedRoute, Router }   from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class TripEditComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private router : Router,
-    private tripservice : TripServiceService
+    private tripservice : TripService
   ) { }
 
   ngOnInit() {

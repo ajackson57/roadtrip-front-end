@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class SignupComponent implements OnInit {
   newUser = <any>{};
 
-  constructor(private auth: AuthService) {
+  constructor(public auth: AuthService) {
     console.log('Sign-Up Component Contructed');
   }
 

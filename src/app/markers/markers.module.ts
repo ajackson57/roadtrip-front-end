@@ -6,7 +6,7 @@ import { MarkerNewComponent } from './marker-new/marker-new.component';
 import { MarkerEditComponent } from './marker-edit/marker-edit.component';
 import { MarkerIndexComponent } from './marker-index/marker-index.component';
 import { MarkerShowComponent } from './marker-show/marker-show.component';
-import { TripServiceService } from '../trips/trip-service.service';
+import { TripService } from '../services/trips/trip.service';
 
 @NgModule({
   imports: [
@@ -24,6 +24,6 @@ import { TripServiceService } from '../trips/trip-service.service';
                  MarkerEditComponent,
                  MarkerIndexComponent,
                  MarkerShowComponent],
-  providers: [TripServiceService]
+  providers: [TripService]
 })
 export class MarkersModule { }

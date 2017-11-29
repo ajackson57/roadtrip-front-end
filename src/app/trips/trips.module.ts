@@ -6,7 +6,7 @@ import { TripShowComponent } from './trip-show/trip-show.component';
 import { TripIndexComponent } from './trip-index/trip-index.component';
 import { TripEditComponent } from './trip-edit/trip-edit.component';
 import { TripNewComponent } from './trip-new/trip-new.component';
-import { TripServiceService } from './trip-service.service';
+import { TripService } from '../services/trips/trip.service';
 
 @NgModule({
   imports: [
@@ -29,6 +29,6 @@ import { TripServiceService } from './trip-service.service';
                  TripShowComponent,
                  TripEditComponent,
                  TripNewComponent],
-  providers: [TripServiceService]
+  providers: [TripService]
 })
 export class TripsModule { }

@@ -4,12 +4,12 @@ import { of } from 'rxjs/observable/of';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import { AuthService } from '../services/auth/auth.service';
-import { environment } from '../../environments/environment';
+import { AuthService } from '../auth/auth.service';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable()
-export class TripServiceService {
+export class TripService {
   trips: any
   trip: any;
 
