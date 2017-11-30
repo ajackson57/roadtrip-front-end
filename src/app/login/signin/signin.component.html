@@ -1,8 +1,16 @@
-<div class="container">
+<div class="container" id="needs-validation" novalidate>
   <h3>Sign In</h3>
-  <input [(ngModel)]="user.email" type="text" placeholder="Email"/>
-  <input [(ngModel)]="user.password" type="text" placeholder="Password"/>
-  <input (click)="signIn()" type="submit" value="Log in"/>
+  <div>
+    <label for="email">Email</label>
+    <input class="form-control" [(ngModel)]="user.email" type="text" placeholder="Email"/>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input class="form-control" [(ngModel)]="user.password" type="password" placeholder="Password"/>
+  </div>
+  <div>
+    <input class="btn btn-primary" (click)="signIn()" type="submit" value="Log in"/>
+  </div>
 </div>
 <div *ngIf="auth.user" class="container">
   <div>I see a user!!! <strong>{{auth.user.email}}</strong></div>

@@ -16,5 +16,8 @@
   <label for="zoom">Zoom Factor:</label>
   <input name="zoom" [(ngModel)]="updatedTrip.zoom">
 
-  <input type="submit" value="Update">
+  <input type="submit" class="btn btn-primary" value="Update">
 </form>
+<div>
+  <a class="btn btn-primary" [routerLink]="['/markers']">Markers</a>
+</div>

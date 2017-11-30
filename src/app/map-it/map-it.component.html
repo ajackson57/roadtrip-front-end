@@ -2,15 +2,23 @@
     <agm-map [latitude]="tripservice.trip.center_lat"
              [longitude]="tripservice.trip.center_lng"
              [zoom]="zoom"
+             [panControl]="true"
              [disableDefaultUI]="false"
              (mapClick)="mapClicked($event)">
       <div *ngIf="tripservice.markers" class="container">
         <div *ngFor="let marker of tripservice.markers; let i=index">
           <agm-marker [latitude]="marker.lat"
                       [longitude]="marker.lng"
+                      [iconUrl]="'../../assets/icons/museum_historical.png'"
                       [label]="i">
-            <agm-info-window>
 
+            <agm-info-window>
+              <h4>{{marker.name}}</h4>
+              <p>{{marker.description}}</p>
+              <img src={{marker.image_url}}/>
+              <img src="../../assets/images/250px-Carpenter_Center_for_the_Visual_Arts.jpg"/>
+              <p>For more information, visit <a href={{marker.poi_url}}>web page</a>
+              <!-- {{marker.description}} -->
            </agm-info-window>
          </agm-marker>
         </div>

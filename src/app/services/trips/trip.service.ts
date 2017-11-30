@@ -71,6 +71,47 @@ export class TripService {
       // )
   }
 
+
+
+  updateTrip(trip) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+    let data = {
+    "trip": {
+      "name": trip.name,
+      "description": trip.description,
+      "center_lat": trip.center_lat,
+      "center_lng": trip.center_lng,
+      "zoom": trip.zoom
+    }
+    }
+    // Make the delete request to URL, and add the token from Config.
+    return this.http.patch(environment.apiOrigin + '/trips/' + this.trip.id, data, config)
+      // .subscribe(
+      //   response => {
+      //   this.trip = JSON.parse(response['_body']).trip
+      //  },
+      //  err => console.log(err)
+      // )
+  }
+
+  deleteTrip(id: number) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+
+    // Make the delete request to URL, and add the token from Config.
+    return this.http.delete(environment.apiOrigin + '/trips/' + id, config)
+      // .subscribe(
+      //   response => {
+      //   this.trip = JSON.parse(response['_body']).trip
+      //  },
+      //  err => console.log(err)
+      // )
+  }
   createMarker(marker) {
     // Create the configuration object to be able to store the Headers > Authentication
     let config = {}
@@ -121,46 +162,6 @@ export class TripService {
       // )
   }
 
-  updateTrip(trip) {
-    // Create the configuration object to be able to store the Headers > Authentication
-    let config = {}
-    // Set the headers key
-    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
-    let data = {
-    "trip": {
-      "name": trip.name,
-      "description": trip.description,
-      "center_lat": trip.center_lat,
-      "center_lng": trip.center_lng,
-      "zoom": trip.zoom
-    }
-    }
-    // Make the delete request to URL, and add the token from Config.
-    return this.http.patch(environment.apiOrigin + '/trips/' + this.trip.id, data, config)
-      // .subscribe(
-      //   response => {
-      //   this.trip = JSON.parse(response['_body']).trip
-      //  },
-      //  err => console.log(err)
-      // )
-  }
-
-  deleteTrip(id: number) {
-    // Create the configuration object to be able to store the Headers > Authentication
-    let config = {}
-    // Set the headers key
-    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
-
-    // Make the delete request to URL, and add the token from Config.
-    return this.http.delete(environment.apiOrigin + '/trips/' + id, config)
-      // .subscribe(
-      //   response => {
-      //   this.trip = JSON.parse(response['_body']).trip
-      //  },
-      //  err => console.log(err)
-      // )
-  }
-
   deleteMarker(id: number) {
     // Create the configuration object to be able to store the Headers > Authentication
     let config = {}
@@ -202,7 +203,7 @@ export class TripService {
     //.map(response => this.trip = JSON.parse(response['_body']).trip);
       .subscribe(
         response => {
-        this.trip = JSON.parse(response['_body']).trip
+        this.marker = JSON.parse(response['_body']).marker
        },
        err => console.log(err)
       )

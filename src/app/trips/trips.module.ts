@@ -8,10 +8,12 @@ import { TripEditComponent } from './trip-edit/trip-edit.component';
 import { TripNewComponent } from './trip-new/trip-new.component';
 import { TripService } from '../services/trips/trip.service';
 import { MapItModule } from '../map-it/map-it.module';
+import { MarkersModule } from '../markers/markers.module';
 
 @NgModule({
   imports: [
     MapItModule,
+    MarkersModule,
     // RouterModule.forRoot([
     //     { path: 'trips', component: TripListComponent }
     //   ]),

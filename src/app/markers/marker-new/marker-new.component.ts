@@ -17,7 +17,7 @@ export class MarkerNewComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveTrip(newMarker) {
+  saveMarker(newMarker) {
     console.log("saving marker");
     console.log(newMarker);
     this.tripService.createMarker(newMarker)

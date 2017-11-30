@@ -1,3 +1,38 @@
-<p>
-  marker-show works!
-</p>
+<div *ngIf="tripservice.marker" class="container">
+  <div>I see a marker:</div>
+  <div class='table-responsive'>
+      <table class='table'>
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
+                  <th>Image URL</th>
+                  <th>Site URL</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>{{ tripservice.marker.name }}</td>
+                  <!-- <td><a [routerLink]="['/trips', trip.id]">
+                                {{ trip.name }}
+                            </a>
+						      </td> -->
+                  <td>{{ tripservice.marker.description }}</td>
+                  <td>{{ tripservice.marker.center_lat }}</td>
+                  <td>{{ tripservice.marker.center_lng }}</td>
+                  <td>{{ tripservice.marker.zoom }}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+    <div>
+      <a class="btn btn-primary" [routerLink]="['/markers/edit']">Edit Marker</a>
+      <!-- <a class="btn btn-primary" [routerLink]="['/mapit']">Map Trip</a> -->
+      <a class="btn btn-primary" (click)='onDelete()'>Delete Marker</a>
+    </div>
+    <div class='container'>
+       <router-outlet></router-outlet>
+    </div>
+  <div>

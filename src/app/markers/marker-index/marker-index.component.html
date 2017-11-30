@@ -1,8 +1,8 @@
-<div *ngIf="markerservice.markers" class="container">
+<div *ngIf="tripservice.markers" class="container">
   <div>I see markers:</div>
   <div class='table-responsive'>
       <table class='table'
-              *ngIf='markerservice.markers && markerservice.markers.length'>
+              *ngIf='tripservice.markers && tripservice.markers.length'>
           <thead>
               <tr>
                   <th>Name</th>
@@ -14,7 +14,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor='let marker of markerservice.markers'>
+              <tr *ngFor='let marker of tripservice.markers'>
                   <!-- <td>{{ marker.name }}</td> -->
                   <td><a [routerLink]="['/markers', marker.id]">
                                 {{ marker.name }}
@@ -31,6 +31,6 @@
       </table>
     </div>
     <div>
-      <a class="btn" [routerLink]="['/markers/new']">Add Marker</a>
+      <a class="btn btn-primary" [routerLink]="['/markers/new']">Add Marker</a>
     </div>
   </div>
