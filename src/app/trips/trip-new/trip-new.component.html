@@ -1,20 +1,25 @@
 <h2>New Trip</h2>
 
 <form (ngSubmit)="saveTrip(newTrip)">
-  <label for="name">Name:</label>
-  <input name="name" [(ngModel)]="newTrip.name">
-
-  <label for="description">Description:</label>
-  <input name="description" [(ngModel)]="newTrip.description">
-
-  <label for="center_lat">Center Latitude:</label>
-  <input name="center_lat" [(ngModel)]="newTrip.center_lat">
-
-  <label for="center_lng">Center Longitude:</label>
-  <input name="center_lng" [(ngModel)]="newTrip.center_lng">
-
-  <label for="zoom">Zoom Factor:</label>
-  <input name="zoom" [(ngModel)]="newTrip.zoom">
-
-  <input type="submit" value="Create">
+  <div>
+    <label for="name">Name</label>
+    <input class="form-control" name="name" [(ngModel)]="newTrip.name">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input class="form-control" name="description" [(ngModel)]="newTrip.description">
+  </div>
+  <div>
+    <label for="center_lat">Center Latitude</label>
+    <input class="form-control" name="center_lat" [(ngModel)]="newTrip.center_lat">
+  </div>
+  <div>
+    <label for="center_lng">Center Longitude</label>
+    <input class="form-control" name="center_lng" [(ngModel)]="newTrip.center_lng">
+  </div>
+  <div>
+    <label for="zoom">Zoom Factor</label>
+    <input class="form-control" name="zoom" [(ngModel)]="newTrip.zoom">
+  </div>
+  <input class="btn btn-primary" type="submit" value="Create">
 </form>

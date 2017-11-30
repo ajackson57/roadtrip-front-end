@@ -1,8 +1,19 @@
 <div class="container">
   <h3>Sign Up</h3>
-  <input [(ngModel)]="newUser.email" type="text" placeholder="Email"/>
-  <input [(ngModel)]="newUser.password" type="text" placeholder="Password"/>
-  <input [(ngModel)]="newUser.password_confirmation" type="text" placeholder="Confirm Passsword"/>
-  <input class="btn btn-primary" (click)="signUp()" type="submit" value="Sign Up"/>
+  <div>
+    <label for="email">Email</label>
+    <input class="form-control" [(ngModel)]="newUser.email" type="text" placeholder="Email"/>
+  </div>
+  <div>
+    <label for="password">Email</label>
+    <input class="form-control" [(ngModel)]="newUser.password" type="password" placeholder="Password"/>
+  </div>
+  <div>
+    <label for="password_confirmation">Email Confirmation</label>
+    <input class="form-control" [(ngModel)]="newUser.password_confirmation" type="password" placeholder="Confirm Passsword"/>
+  </div>
+  <div>
+    <input class="btn btn-primary" (click)="signUp()" type="submit" value="Sign Up"/>
+  </div>
 </div>
-<div *ngIf="auth.user" class="container">I see a user!!! <strong>{{auth.user.email}}</strong></div>
+<div *ngIf="auth.user" class="container">Success on sign-up!<strong>{{auth.user.email}}</strong></div>

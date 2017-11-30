@@ -1,21 +1,26 @@
 <h2>Edit Trip</h2>
 
 <form (ngSubmit)="updateTrip(updatedTrip)">
-  <label for="name">Name:</label>
-  <input name="name" [(ngModel)]="updatedTrip.name">
-
-  <label for="description">Description:</label>
-  <input name="description" [(ngModel)]="updatedTrip.description">
-
-  <label for="center_lat">Center Latitude:</label>
-  <input name="center_lat" [(ngModel)]="updatedTrip.center_lat">
-
-  <label for="center_lng">Center Longitude:</label>
-  <input name="center_lng" [(ngModel)]="updatedTrip.center_lng">
-
-  <label for="zoom">Zoom Factor:</label>
-  <input name="zoom" [(ngModel)]="updatedTrip.zoom">
-
+  <div>
+    <label for="name">Name</label>
+    <input class="form-control" name="name" [(ngModel)]="updatedTrip.name">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input class="form-control" name="description" [(ngModel)]="updatedTrip.description">
+  </div>
+  <div>
+    <label for="center_lat">Center Latitude</label>
+    <input class="form-control" name="center_lat" [(ngModel)]="updatedTrip.center_lat">
+  </div>
+  <div>
+   <label for="center_lng">Center Longitude</label>
+   <input class="form-control" name="center_lng" [(ngModel)]="updatedTrip.center_lng">
+ </div>
+ <div>
+  <label for="zoom">Zoom Factor</label>
+  <input class="form-control" name="zoom" [(ngModel)]="updatedTrip.zoom">
+</div>
   <input type="submit" class="btn btn-primary" value="Update">
 </form>
 <div>

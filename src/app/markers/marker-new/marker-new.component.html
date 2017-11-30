@@ -1,23 +1,29 @@
 <h2>New Marker</h2>
 
 <form (ngSubmit)="saveMarker(newMarker)">
-  <label for="name">Name:</label>
-  <input name="name" [(ngModel)]="newMarker.name">
-
-  <label for="description">Description:</label>
-  <input name="description" [(ngModel)]="newMarker.description">
-
-  <label for="latitude">Latitude:</label>
-  <input name="latitude" [(ngModel)]="newMarker.lat">
-
-  <label for="longitude">Longitude:</label>
-  <input name="longitude" [(ngModel)]="newMarker.lng">
-
-  <label for="image_url">Image URL:</label>
-  <input name="image_url" [(ngModel)]="newMarker.image_url">
-
-  <label for="poi_url">Site URL:</label>
-  <input name="poi_url" [(ngModel)]="newMarker.poi_url">
-
+  <div>
+    <label for="name">Name</label>
+    <input class="form-control" name="name" [(ngModel)]="newMarker.name">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input class="form-control" name="description" [(ngModel)]="newMarker.description">
+  </div>
+  <div>
+    <label for="latitude">Latitude</label>
+    <input class="form-control" name="latitude" [(ngModel)]="newMarker.lat">
+  </div>
+  <div>
+    <label for="longitude">Longitude</label>
+    <input class="form-control" name="longitude" [(ngModel)]="newMarker.lng">
+  </div>
+  <div>
+    <label for="image_url">Image URL</label>
+    <input class="form-control" name="image_url" [(ngModel)]="newMarker.image_url">
+  </div>
+  <div>
+    <label for="poi_url">Site URL</label>
+    <input class="form-control" name="poi_url" [(ngModel)]="newMarker.poi_url">
+  </div>
   <input type="submit" class="btn btn-primary" value="Create">
 </form>

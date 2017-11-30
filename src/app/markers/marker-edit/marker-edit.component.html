@@ -2,33 +2,33 @@
 
 <form (ngSubmit)="updateMarker(updatedMarker)">
   <div>
-    <label for="name">Name:</label>
-    <input name="name" [(ngModel)]="updatedMarker.name">
+    <label for="name">Name</label>
+    <input class="form-control" name="name" [(ngModel)]="updatedMarker.name">
   </div>
 
   <div>
-    <label for="description">Description:</label>
-    <input name="description" [(ngModel)]="updatedMarker.description">
+    <label for="description">Description</label>
+    <input class="form-control" name="description" [(ngModel)]="updatedMarker.description">
   </div>
 
   <div>
-    <label for="latitude">Latitude:</label>
-    <input name="latitude" [(ngModel)]="updatedMarker.lat">
+    <label for="latitude">Latitude</label>
+    <input class="form-control" name="latitude" [(ngModel)]="updatedMarker.lat">
   </div>
 
   <div>
-    <label for="longitude">Longitude:</label>
-    <input name="longitude" [(ngModel)]="updatedMarker.lng">
+    <label for="longitude">Longitude</label>
+    <input class="form-control" name="longitude" [(ngModel)]="updatedMarker.lng">
   </div>
 
   <div>
-    <label for="image_url">Image URL:</label>
-    <input name="image_url" [(ngModel)]="updatedMarker.image_url">
+    <label for="image_url">Image URL</label>
+    <input class="form-control" name="image_url" [(ngModel)]="updatedMarker.image_url">
   </div>
 
   <div>
-    <label for="poi_url">Site URL:</label>
-    <input name="poi_url" [(ngModel)]="updatedMarker.poi_url">
+    <label for="poi_url">Site URL</label>
+    <input class="form-control" name="poi_url" [(ngModel)]="updatedMarker.poi_url">
   </div>
 
   <input type="submit" class="btn btn-primary" value="Update">
