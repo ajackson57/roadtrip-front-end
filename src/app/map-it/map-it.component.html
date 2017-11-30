@@ -1,0 +1,20 @@
+<div *ngIf="tripservice && tripservice.trip" class="container">
+    <agm-map [latitude]="tripservice.trip.center_lat"
+             [longitude]="tripservice.trip.center_lng"
+             [zoom]="zoom"
+             [disableDefaultUI]="false"
+             (mapClick)="mapClicked($event)">
+      <div *ngIf="tripservice.markers" class="container">
+        <div *ngFor="let marker of tripservice.markers; let i=index">
+          <agm-marker [latitude]="marker.lat"
+                      [longitude]="marker.lng"
+                      [label]="i">
+            <agm-info-window>
+                 This is an info window!
+           </agm-info-window>
+         </agm-marker>
+        </div>
+      </div>
+    </agm-map>
+<div>
+<!-- <ng-template [ngTemplateOutlet]="marker.description"></ng-template> -->

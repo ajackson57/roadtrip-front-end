@@ -26,7 +26,10 @@
     </div>
     <div>
       <a class="btn" [routerLink]="['/trips/edit']">Edit Trip</a>
-      <a class="btn" [routerLink]="['/trips/map']">Map Trip</a>
+      <a class="btn" [routerLink]="['/mapit']">Map Trip</a>
       <a class="btn" (click)='onDelete()'>Delete Trip</a>
+    </div>
+    <div class='container'>
+       <router-outlet></router-outlet>
     </div>
   <div>

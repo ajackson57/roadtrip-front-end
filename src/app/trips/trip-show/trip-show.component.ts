@@ -19,6 +19,7 @@ export class TripShowComponent implements OnInit {
     if (param) {
       this.id = +param;
       this.tripservice.getTrip(this.id);
+      this.tripservice.getMarkers()
     }
   }
   onDelete() {

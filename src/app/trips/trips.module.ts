@@ -7,9 +7,11 @@ import { TripIndexComponent } from './trip-index/trip-index.component';
 import { TripEditComponent } from './trip-edit/trip-edit.component';
 import { TripNewComponent } from './trip-new/trip-new.component';
 import { TripService } from '../services/trips/trip.service';
+import { MapItModule } from '../map-it/map-it.module';
 
 @NgModule({
   imports: [
+    MapItModule,
     // RouterModule.forRoot([
     //     { path: 'trips', component: TripListComponent }
     //   ]),
@@ -17,7 +19,6 @@ import { TripService } from '../services/trips/trip.service';
         { path: 'trips', component: TripIndexComponent },
         { path: 'trips/new', component: TripNewComponent },
         { path: 'trips/edit', component: TripEditComponent },
-        { path: 'trips/map', component: TripEditComponent },
         { path: 'trips/delete', component: TripEditComponent },
         { path: 'trips/:id', component: TripShowComponent }
 

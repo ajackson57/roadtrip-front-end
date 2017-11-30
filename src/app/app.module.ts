@@ -5,8 +5,10 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { TripService } from './services/trips/trip.service';
 import { AuthService } from './services/auth/auth.service';
 import { LoginModule } from './login/login.module';
+import { MapItModule } from './map-it/map-it.module';
 
 
 @NgModule({
@@ -15,13 +17,13 @@ import { LoginModule } from './login/login.module';
   ],
   imports: [
     LoginModule,
+    MapItModule,
     // RouterModule.forChild([
     //     { path: 'login', component: LoginComponent }
     //   ]),
     BrowserModule,
     FormsModule,
     HttpModule
-
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

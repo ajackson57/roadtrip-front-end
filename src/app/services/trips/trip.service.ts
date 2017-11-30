@@ -10,8 +10,10 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class TripService {
-  trips: any
+  trips: any;
   trip: any;
+  markers: any;
+  marker: any;
 
   constructor( private http: Http,  public auth: AuthService ) { }
 
@@ -105,6 +107,20 @@ export class TripService {
       //  },
       //  err => console.log(err)
       // )
+  }
+  getMarkers() {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+    // Make the delete request to URL, and add the token from Config.
+    this.http.get(environment.apiOrigin + '/markers', config)
+      .subscribe(
+        response => {
+        this.markers = JSON.parse(response['_body']).markers
+       },
+       err => console.log(err)
+      )
   }
 
 

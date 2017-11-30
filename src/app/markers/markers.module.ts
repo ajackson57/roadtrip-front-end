@@ -12,10 +12,9 @@ import { TripService } from '../services/trips/trip.service';
   imports: [
     RouterModule.forChild([
       { path: 'markers', component: MarkerIndexComponent },
-      { path: 'markers/:id', component: MarkerShowComponent },
       { path: 'markers/new', component: MarkerNewComponent },
-      { path: 'markers/edit', component: MarkerEditComponent }
-
+      { path: 'markers/edit', component: MarkerEditComponent },
+      { path: 'markers/:id', component: MarkerShowComponent }
   ]),
     CommonModule,
     FormsModule

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TripService } from '../../services/trips/trip.service';
+
 
 @Component({
   selector: 'app-marker-index',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MarkerIndexComponent implements OnInit {
 
-  constructor() { }
+  constructor( public tripservice: TripService ) { }
 
   ngOnInit() {
+    this.tripservice.getMarkers()
   }
 
 }
