@@ -1,3 +1,36 @@
-<p>
-  marker-index works!
-</p>
+<div *ngIf="markerservice.markers" class="container">
+  <div>I see markers:</div>
+  <div class='table-responsive'>
+      <table class='table'
+              *ngIf='markerservice.markers && markerservice.markers.length'>
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
+                  <th>Image URL</th>
+                  <th>Site URL</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor='let marker of markerservice.markers'>
+                  <!-- <td>{{ marker.name }}</td> -->
+                  <td><a [routerLink]="['/markers', marker.id]">
+                                {{ marker.name }}
+                            </a>
+						      </td>
+                  <td>{{ marker.description }}</td>
+                  <td>{{ marker.lat }}</td>
+                  <td>{{ marker.lng }}</td>
+                  <td>{{ marker.zoom }}</td>
+                  <td>{{ marker.image_url }}</td>
+                  <td>{{ marker.poi_url }}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+    <div>
+      <a class="btn" [routerLink]="['/markers/new']">Add Marker</a>
+    </div>
+  </div>

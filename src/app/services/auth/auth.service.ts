@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
 
@@ -10,7 +11,9 @@ import { environment } from '../../../environments/environment';
 export class AuthService {
   user: any
 
-  constructor( private http: Http ) { }
+  constructor( private http: Http,
+               private _route: ActivatedRoute,
+               private _router: Router) { }
 
   getUserToken() {
     return this.user.token
@@ -29,7 +32,10 @@ export class AuthService {
     this.http.post(environment.apiOrigin + '/sign-in', credentials)
       .subscribe(
         // Save the response to user
-        response => this.user = JSON.parse(response['_body']).user,
+        response => {
+        this.user = JSON.parse(response['_body']).user;
+        this._router.navigate(["/trips"]);
+      },
         err => console.log(err)
       )
   }

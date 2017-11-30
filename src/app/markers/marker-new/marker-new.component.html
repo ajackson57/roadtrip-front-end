@@ -1,3 +1,23 @@
-<p>
-  marker-new works!
-</p>
+<h2>New Marker</h2>
+
+<form (ngSubmit)="saveMarker(newMarker)">
+  <label for="name">Name:</label>
+  <input name="name" [(ngModel)]="newMarker.name">
+
+  <label for="description">Description:</label>
+  <input name="description" [(ngModel)]="newMarker.description">
+
+  <label for="latitude">Latitude:</label>
+  <input name="latitude" [(ngModel)]="newMarker.lat">
+
+  <label for="longitude">Longitude:</label>
+  <input name="longitude" [(ngModel)]="newMarker.lng">
+
+  <label for="image_url">Image URL:</label>
+  <input name="image_url" [(ngModel)]="newMarker.image_url">
+
+  <label for="poi_url">Site URL:</label>
+  <input name="poi_url" [(ngModel)]="newMarker.poi_url">
+
+  <input type="submit" value="Create">
+</form>

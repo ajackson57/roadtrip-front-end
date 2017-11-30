@@ -26,7 +26,7 @@ export class TripService {
     this.http.get(environment.apiOrigin + '/trips', config)
       .subscribe(
         response => {
-        this.trips = JSON.parse(response['_body']).trips
+        this.trips = JSON.parse(response['_body']).trips;
        },
        err => console.log(err)
       )
@@ -57,11 +57,62 @@ export class TripService {
       "name": trip.name,
       "description": trip.description,
       "center_lat": trip.center_lat,
-      "center_lng": trip.center_lng
+      "center_lng": trip.center_lng,
+      "zoom": trip.zoom
     }
     }
     // Make the delete request to URL, and add the token from Config.
     return this.http.post(environment.apiOrigin + '/trips', data, config)
+      // .subscribe(
+      //   response => {
+      //   this.trip = JSON.parse(response['_body']).trip
+      //  },
+      //  err => console.log(err)
+      // )
+  }
+
+  createMarker(marker) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+    let data = {
+    "marker": {
+      "name": marker.name,
+      "description": marker.description,
+      "lat": marker.lat,
+      "lng": marker.lng,
+      "image_url": marker.image_url,
+      "site_url": marker.site_url
+    }
+    }
+    // Make the delete request to URL, and add the token from Config.
+    return this.http.post(environment.apiOrigin + '/markers', data, config)
+      // .subscribe(
+      //   response => {
+      //   this.trip = JSON.parse(response['_body']).trip
+      //  },
+      //  err => console.log(err)
+      // )
+  }
+
+  updateMarker(marker) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+    let data = {
+    "marker": {
+      "name": marker.name,
+      "description": marker.description,
+      "lat": marker.lat,
+      "lng": marker.lng,
+      "image_url": marker.image_url,
+      "site_url": marker.site_url
+    }
+    }
+    // Make the delete request to URL, and add the token from Config.
+    return this.http.patch(environment.apiOrigin + '/markers/' + this.trip.id, data, config)
       // .subscribe(
       //   response => {
       //   this.trip = JSON.parse(response['_body']).trip
@@ -80,7 +131,8 @@ export class TripService {
       "name": trip.name,
       "description": trip.description,
       "center_lat": trip.center_lat,
-      "center_lng": trip.center_lng
+      "center_lng": trip.center_lng,
+      "zoom": trip.zoom
     }
     }
     // Make the delete request to URL, and add the token from Config.
@@ -108,6 +160,23 @@ export class TripService {
       //  err => console.log(err)
       // )
   }
+
+  deleteMarker(id: number) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+
+    // Make the delete request to URL, and add the token from Config.
+    return this.http.delete(environment.apiOrigin + '/markerss/' + id, config)
+      // .subscribe(
+      //   response => {
+      //   this.trip = JSON.parse(response['_body']).trip
+      //  },
+      //  err => console.log(err)
+      // )
+  }
+
   getMarkers() {
     // Create the configuration object to be able to store the Headers > Authentication
     let config = {}
@@ -123,5 +192,20 @@ export class TripService {
       )
   }
 
+  getMarker(id: number) {
+    // Create the configuration object to be able to store the Headers > Authentication
+    let config = {}
+    // Set the headers key
+    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+    // Make the delete request to URL, and add the token from Config.
+    this.http.get(environment.apiOrigin + '/markers/' + id, config)
+    //.map(response => this.trip = JSON.parse(response['_body']).trip);
+      .subscribe(
+        response => {
+        this.trip = JSON.parse(response['_body']).trip
+       },
+       err => console.log(err)
+      )
+  }
 
 }

@@ -29,7 +29,8 @@ export class MapItComponent implements OnInit {
   mapClicked($event: AGMMouseEvent) {
     this.markers.push({
       lat: $event.coords.lat,
-      lng: $event.coords.lng
+      lng: $event.coords.lng,
+      draggable: false
     });
   }
 
@@ -56,6 +57,7 @@ export class MapItComponent implements OnInit {
   		  label: 'C',
   		  draggable: true
   	  }
+    ]
 }
 
 // just an interface for type safety.
