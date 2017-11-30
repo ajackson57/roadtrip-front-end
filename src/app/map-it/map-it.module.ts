@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { TripService } from '../services/trips/trip.service';
 import { MapItComponent } from './map-it.component';
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB8AK83UPAFaGyDFJv8PZmGnNWr6JkW-Mc'
     }),
+    AgmSnazzyInfoWindowModule,
     RouterModule.forRoot([
         { path: 'mapit', component: MapItComponent }
       ]),
