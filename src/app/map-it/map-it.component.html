@@ -7,7 +7,9 @@
       <div *ngIf="tripservice.markers" class="container">
         <div *ngFor="let marker of tripservice.markers; let i=index">
           <agm-marker [latitude]="marker.lat"
-                      [longitude]="marker.lng">
+                      [longitude]="marker.lng"
+                      [label]="marker.name"
+                      [title]="marker.name">
             <agm-info-window>
               <h4>{{marker.name}}</h4>
               <p>{{marker.description}}</p>

@@ -10,30 +10,31 @@ This project provides the frontend for a basic roadtrip (could be walking tour) 
 
 ## Technologies used.
 - **Styling** - The Boostrap NAV bar and basic styling were used.
-- **HTML** - A table is used to display the list of contacts.
-- **JavaScript** - Events from the table, butons, and the navigation bar drive
-  the application
-- **Handlebars** - The contact table and entry form were done with html in
-  handlebar tamplates.
+- **Angular2** - Angular2 provides the fortend workflow.
+- **AngularFlashMessage** - Error handling and some friendly user feedback is
+  provides by AngularFlashMessages
+- [Angular Google Maps](https://angular-maps.com/)
+  Provides the mapping capability.
 - **Ruby on Rails** - The backend server was developed with Ruby's Rails
   framework. Ajax used on the frontend to make requests of the Rails server.
 - [ERD for backend DB](https://github.com/ajackson57/roadtrip-backend/blob/master/GA-WDI-Capstone.pdf)
+  The ERD has been updated to include location, longitude and latitude for each marker.
 
 ## The Devlopment Story
 [Initial Schedule](https://github.com/ajackson57/roadtrip-frontend/blob/master/Capstone%20Roadtrip%20Tasks.pdf)
  - **The Development Process**
  - The development process started with some rough wireframes, some user
    stories, and a quick planning outline. I divided development into feature
-   groups and created a branch in Git for each group. The branches for this
-   repository (frontend) were as follows:
-      -
+   groups and created a branch in Git for each group.
 
  - **Problem-Solving Strategy**
  - I used the debugging facilities in the DevTools. I analyized error messages, setup breakpoints, and stepped through the code examining values of objects as I stepped through.
 
 ## Current Issues to be resolved in the future
 - **Future Enhancements**
--
+- Add Geocoding for addresses to obtain longitude and latitude
+- Add a direction list capability
+- Add a route plotting capability
 
 ## Wireframes and User Stories.
 - [Wire Frames](https://github.com/ajackson57/roadtrip-frontend/blob/master/roadtrip.pdf)
