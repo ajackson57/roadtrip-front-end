@@ -16,3 +16,4 @@ export class MapItComponent implements OnInit {
 
   ngOnInit() {
   }
+}
