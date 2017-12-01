@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TripService } from '../../services/trips/trip.service';
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service.js';
+
 
 @Component({
   selector: 'app-marker-show',
@@ -12,7 +14,9 @@ export class MarkerShowComponent implements OnInit {
   trip: any;
   constructor(private _route: ActivatedRoute,
              private _router: Router,
-             public tripservice: TripService) { }
+             public tripservice: TripService,
+             private _flashMessagesService: FlashMessagesService )
+           { }
 
   ngOnInit() {
    const param = this._route.snapshot.paramMap.get('id');
@@ -28,7 +32,9 @@ export class MarkerShowComponent implements OnInit {
        .subscribe(response => {
      this._router.navigate(["/markers"])
      },
-     err => console.log(err));
+       err => { this._flashMessagesService.show(
+         'Sorry there was an issue deleting the trip marker. ' + err) }
+     )
   }
 
 }

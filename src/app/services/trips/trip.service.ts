@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import { AuthService } from '../auth/auth.service';
 import { environment } from '../../../environments/environment';
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service.js';
 
 
 @Injectable()
@@ -15,7 +16,10 @@ export class TripService {
   markers: any;
   marker: any;
 
-  constructor( private http: Http,  public auth: AuthService ) { }
+  constructor( private http: Http,
+               public auth: AuthService,
+               private _flashMessagesService: FlashMessagesService )
+               { }
 
   getTrips() {
     // Create the configuration object to be able to store the Headers > Authentication
@@ -28,9 +32,11 @@ export class TripService {
         response => {
         this.trips = JSON.parse(response['_body']).trips;
        },
-       err => console.log(err)
+       err => { this._flashMessagesService.show(
+         'Error retrieving trips. ' + err); }
       )
   }
+
   getTrip(id: number) {
     // Create the configuration object to be able to store the Headers > Authentication
     let config = {}
@@ -41,9 +47,9 @@ export class TripService {
     //.map(response => this.trip = JSON.parse(response['_body']).trip);
       .subscribe(
         response => {
-        this.trip = JSON.parse(response['_body']).trip
+        this.trip = JSON.parse(response['_body']).trip;
        },
-       err => console.log(err)
+       err => { this._flashMessagesService.show('Error retrieving trip. ' + err); }
       )
   }
 
@@ -63,12 +69,6 @@ export class TripService {
     }
     // Make the delete request to URL, and add the token from Config.
     return this.http.post(environment.apiOrigin + '/trips', data, config)
-      // .subscribe(
-      //   response => {
-      //   this.trip = JSON.parse(response['_body']).trip
-      //  },
-      //  err => console.log(err)
-      // )
   }
 
 
@@ -89,12 +89,6 @@ export class TripService {
     }
     // Make the delete request to URL, and add the token from Config.
     return this.http.patch(environment.apiOrigin + '/trips/' + this.trip.id, data, config)
-      // .subscribe(
-      //   response => {
-      //   this.trip = JSON.parse(response['_body']).trip
-      //  },
-      //  err => console.log(err)
-      // )
   }
 
   deleteTrip(id: number) {
@@ -105,13 +99,8 @@ export class TripService {
 
     // Make the delete request to URL, and add the token from Config.
     return this.http.delete(environment.apiOrigin + '/trips/' + id, config)
-      // .subscribe(
-      //   response => {
-      //   this.trip = JSON.parse(response['_body']).trip
-      //  },
-      //  err => console.log(err)
-      // )
   }
+
   createMarker(marker) {
     // Create the configuration object to be able to store the Headers > Authentication
     let config = {}
@@ -129,12 +118,6 @@ export class TripService {
     }
     // Make the delete request to URL, and add the token from Config.
     return this.http.post(environment.apiOrigin + '/markers', data, config)
-      // .subscribe(
-      //   response => {
-      //   this.trip = JSON.parse(response['_body']).trip
-      //  },
-      //  err => console.log(err)
-      // )
   }
 
   updateMarker(marker) {
@@ -154,12 +137,6 @@ export class TripService {
     }
     // Make the delete request to URL, and add the token from Config.
     return this.http.patch(environment.apiOrigin + '/markers/' + this.trip.id, data, config)
-      // .subscribe(
-      //   response => {
-      //   this.trip = JSON.parse(response['_body']).trip
-      //  },
-      //  err => console.log(err)
-      // )
   }
 
   deleteMarker(id: number) {
@@ -170,12 +147,6 @@ export class TripService {
 
     // Make the delete request to URL, and add the token from Config.
     return this.http.delete(environment.apiOrigin + '/markerss/' + id, config)
-      // .subscribe(
-      //   response => {
-      //   this.trip = JSON.parse(response['_body']).trip
-      //  },
-      //  err => console.log(err)
-      // )
   }
 
   getMarkers() {
@@ -187,9 +158,12 @@ export class TripService {
     this.http.get(environment.apiOrigin + '/markers', config)
       .subscribe(
         response => {
-        this.markers = JSON.parse(response['_body']).markers
+        this.markers = JSON.parse(response['_body']).markers;
        },
-       err => console.log(err)
+       err => {
+         this._flashMessagesService.show('There was a problem retrieving your trips markers. '
+          + err);
+         }
       )
   }
 
@@ -203,9 +177,12 @@ export class TripService {
     //.map(response => this.trip = JSON.parse(response['_body']).trip);
       .subscribe(
         response => {
-        this.marker = JSON.parse(response['_body']).marker
+        this.marker = JSON.parse(response['_body']).marker;
        },
-       err => console.log(err)
+       err => {
+         this._flashMessagesService.show('There was a problem retrieving your trips markers. '
+          + err);
+        }
       )
   }
 

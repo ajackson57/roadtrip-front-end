@@ -4,8 +4,8 @@ import { of } from 'rxjs/observable/of';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { environment } from '../../../environments/environment';
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service.js';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +13,9 @@ export class AuthService {
 
   constructor( private http: Http,
                private _route: ActivatedRoute,
-               private _router: Router) { }
+               private _router: Router,
+               private _flashMessagesService: FlashMessagesService )
+             { }
 
   getUserToken() {
     return this.user.token
@@ -35,8 +37,10 @@ export class AuthService {
         response => {
         this.user = JSON.parse(response['_body']).user;
         this._router.navigate(["/trips"]);
+        this._flashMessagesService.show('Welcome to Roadtrip ' + this.user.email);
       },
-        err => console.log(err)
+        err => { this._flashMessagesService.show(
+          'Sorry unable to log you in. Do you need to setup an account?.' + err) }
       )
   }
 
@@ -57,7 +61,8 @@ export class AuthService {
           // Send the existing credentials back to the server to log in the new user
           this.signIn(credentials.credentials.email, credentials.credentials.password)
         },
-        err => console.log(err)
+        err => { this._flashMessagesService.show(
+          'Sorry unable to setup your account. Did you include your email and password.' + err) }
       )
   }
 
@@ -71,8 +76,12 @@ export class AuthService {
     this.http.delete(environment.apiOrigin + '/sign-out/' + this.user.id, config)
       .subscribe(
         // Remove the logged in user.
-        data => this.user = null,
-        err => console.log(err)
+        data => { this.user = null;
+        this._flashMessagesService.show( 'You are logged out.');
+        this._router.navigate(["/signin"]);
+       },
+        err => { this._flashMessagesService.show(
+          'Sorry there was a problem logging you out. ' + err) }
       )
   }
 
@@ -94,8 +103,8 @@ export class AuthService {
     // Make the patch request to URL, add the password data and token from Config.
     this.http.patch(environment.apiOrigin + '/change-password/' + this.user.id, passwords, config)
       .subscribe(
-        data => console.log('Success'),
-        err => console.log(err)
+        data => { this._flashMessagesService.show('Hey ' + this.user.email + ' you succesfully changed your password!') },
+        err => { this._flashMessagesService.show('Sorry ' + this.user.email + ' unable to change you password.') }
       )
   }
 }

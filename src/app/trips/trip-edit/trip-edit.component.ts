@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TripService } from '../../services/trips/trip.service';
 import { ActivatedRoute, Router }   from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service.js';
 
 @Component({
   selector: 'app-trip-edit',
@@ -13,7 +14,8 @@ export class TripEditComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private router : Router,
-    private tripservice : TripService
+    private tripservice : TripService,
+    private _flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -24,10 +26,13 @@ export class TripEditComponent implements OnInit {
     console.log("updating trip!");
     this.tripservice.updateTrip(updatedTrip)
     .subscribe(response => {
-      console.log(response.json());
       let trip = response.json();
       this.router.navigate(["/trips/" + trip.trip.id]);
-    });
+      this._flashMessagesService.show('Your trip was succesfully updated.');
+    },
+      err => {
+        this._flashMessagesService.show('There was an issue updatig your trip' + err);
+      });
   }
 
 }

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FlashMessagesModule } from 'angular2-flash-messages/module/module.js';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -18,12 +19,10 @@ import { MapItModule } from './map-it/map-it.module';
   imports: [
     LoginModule,
     MapItModule,
-    // RouterModule.forChild([
-    //     { path: 'login', component: LoginComponent }
-    //   ]),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

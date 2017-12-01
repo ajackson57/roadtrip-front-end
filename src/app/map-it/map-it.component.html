@@ -1,31 +1,21 @@
 <div *ngIf="tripservice && tripservice.trip" class="container">
     <agm-map [latitude]="tripservice.trip.center_lat"
              [longitude]="tripservice.trip.center_lng"
-             [zoom]="zoom"
+             [zoom]="tripservice.trip.zoom"
              [panControl]="true"
-             [disableDefaultUI]="false"
-             (mapClick)="mapClicked($event)">
+             [disableDefaultUI]="false">
       <div *ngIf="tripservice.markers" class="container">
         <div *ngFor="let marker of tripservice.markers; let i=index">
           <agm-marker [latitude]="marker.lat"
-                      [longitude]="marker.lng"
-                      [label]="i">
+                      [longitude]="marker.lng">
             <agm-info-window>
               <h4>{{marker.name}}</h4>
               <p>{{marker.description}}</p>
               <img src={{marker.image_url}}/>
               <p>For more information, visit <a href={{marker.poi_url}}>web page</a></p>
-              <!-- {{marker.description}} -->
            </agm-info-window>
          </agm-marker>
         </div>
       </div>
     </agm-map>
 <div>
-<!-- <ng-template [ngTemplateOutlet]="marker.description"></ng-template> -->
-<!-- <ng-template>
-  <div #infoWindowContainer class="main-window-content"> -->
-    <!-- <div class="full-image" [defaultImage]="'https://take.imgix.net/'+facility.obj.thumbnail+'?auto=format&w=273&h=auto&q=1&blur=100'" [lazyLoad]="'https://fake.imgix.net/'+facility.obj.thumbnail+'?auto=format&w=273&h=auto&q=50'"></div> -->
-    <!-- <p>{{marker.description}}</p> -->
-<!-- </div>
-</ng-template> -->
