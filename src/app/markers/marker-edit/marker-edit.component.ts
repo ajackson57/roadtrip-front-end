@@ -23,7 +23,16 @@ export class MarkerEditComponent implements OnInit {
   }
 
   updateMarker(updatedMarker) {
-    console.log("updating trip!");
+    if ((parseFloat(updatedMarker.lng) == NaN) || updatedMarker.lng > 180 || updatedMarker.lng < -180) {
+      this._flashMessagesService.show(
+        'longitude must be in the range of -180 to 180!')
+        return;
+    } else if ((parseFloat(updatedMarker.lat) == NaN) || updatedMarker.lat > 90 || updatedMarker.lat < -90) {
+      this._flashMessagesService.show(
+        'latitude must be in the range of -90 to 90!')
+        return;
+    }
+
     this.tripservice.updateMarker(updatedMarker)
     .subscribe(response => {
       console.log(response.json());

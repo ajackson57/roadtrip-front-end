@@ -21,8 +21,16 @@ export class MarkerNewComponent implements OnInit {
   }
 
   saveMarker(newMarker) {
-    console.log("saving marker");
-    console.log(newMarker);
+    if ((parseFloat(newMarker.lng) == NaN) || newMarker.lng > 180 || newMarker.lng < -180) {
+      this._flashMessagesService.show(
+        'longitude must be in the range of -180 to 180!')
+        return;
+    } else if ((parseFloat(newMarker.lat) == NaN) || newMarker.lat > 90 || newMarker.lat < -90) {
+      this._flashMessagesService.show(
+        'latitude must be in the range of -90 to 90!')
+        return;
+    }
+
     this.tripService.createMarker(newMarker)
         .subscribe(response => {
       let marker = response.json();

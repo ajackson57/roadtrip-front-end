@@ -18,6 +18,9 @@ export class AuthService {
              { }
 
   getUserToken() {
+    if (!this.user) {
+      this._flashMessagesService.show('Invalid credentials, please signin to the application!');
+    }
     return this.user.token
   }
 

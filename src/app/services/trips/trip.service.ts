@@ -158,7 +158,8 @@ export class TripService {
     this.http.get(environment.apiOrigin + '/markers', config)
       .subscribe(
         response => {
-        this.markers = JSON.parse(response['_body']).markers;
+        let tripMarkers = JSON.parse(response['_body']).markers;
+        this.markers = tripMarkers.filter(marker => marker.trip_id == this.trip.id);
        },
        err => {
          this._flashMessagesService.show('There was a problem retrieving your trips markers. '

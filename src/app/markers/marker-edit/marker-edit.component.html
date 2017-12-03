@@ -1,35 +1,44 @@
 <h2>Edit Marker</h2>
 
-<form (ngSubmit)="updateMarker(updatedMarker)">
-  <div>
+<form #markerForm="ngForm" (ngSubmit)="updateMarker(updatedMarker)" class="container">
+  <div class="row">
     <label for="name">Name</label>
-    <input class="form-control" name="name" [(ngModel)]="updatedMarker.name">
+    <input type="text" class="form-control" required [(ngModel)]="updatedMarker.name" name="name" #name="ngModel">
+    <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+      <div [hidden]="!name.errors.required">
+          Name is required!
+      </div>
+    </div>
   </div>
-
   <div>
     <label for="description">Description</label>
     <input class="form-control" name="description" [(ngModel)]="updatedMarker.description">
   </div>
-
-  <div>
-    <label for="latitude">Latitude</label>
-    <input class="form-control" name="latitude" [(ngModel)]="updatedMarker.lat">
+  <div class="row">
+    <label for="lat">Latitude</label>
+    <input type="number" minlength="-90" maxlength="90" class="form-control" name="lat" required [(ngModel)]="updatedMarker.lat" name="lat" #lat="ngModel">
+    <div *ngIf="lat.errors && (lat.dirty || lat.touched)" class="alert alert-danger">
+      <div [hidden]="!lat.errors.required">
+           Latitude requires a number between -90 and 90!
+      </div>
+    </div>
   </div>
-
-  <div>
-    <label for="longitude">Longitude</label>
-    <input class="form-control" name="longitude" [(ngModel)]="updatedMarker.lng">
+  <div class="row">
+    <label for="lng">Longitude</label>
+    <input type="number" minlength="-180" maxlength="180" class="form-control" required [(ngModel)]="updatedMarker.lng" name="lng" #lng="ngModel">
+    <div *ngIf="lng.errors && (lng.dirty || lng.touched)" class="alert alert-danger">
+      <div [hidden]="!lng.errors.required">
+          Longitude requires a number between -180 and 180!
+      </div>
+    </div>
   </div>
-
   <div>
     <label for="image_url">Image URL</label>
     <input class="form-control" name="image_url" [(ngModel)]="updatedMarker.image_url">
   </div>
-
   <div>
     <label for="poi_url">Site URL</label>
     <input class="form-control" name="poi_url" [(ngModel)]="updatedMarker.poi_url">
   </div>
-
-  <input type="submit" class="btn btn-primary" value="Update">
+  <button type="submit" class="btn btn-default" [disabled]="!markerForm.form.valid">Update</button>
 </form>

@@ -1,25 +1,48 @@
 <h2>New Trip</h2>
 
-<form (ngSubmit)="saveTrip(newTrip)">
-  <div>
+<form #tripForm="ngForm" (ngSubmit)="saveTrip(newTrip)" class="container">
+  <div class="row">
     <label for="name">Name</label>
-    <input class="form-control" name="name" [(ngModel)]="newTrip.name">
+    <input type="text" class="form-control" required [(ngModel)]="newTrip.name" name="name" #name="ngModel">
+    <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+      <div [hidden]="!name.errors.required">
+          Name is required!
+      </div>
+    </div>
   </div>
-  <div>
+  <div class="row">
     <label for="description">Description</label>
-    <input class="form-control" name="description" [(ngModel)]="newTrip.description">
+    <input type="text" class="form-control" name="description" [(ngModel)]="newTrip.description">
   </div>
-  <div>
+  <div class="row">
     <label for="center_lat">Center Latitude</label>
-    <input class="form-control" name="center_lat" [(ngModel)]="newTrip.center_lat">
+    <input type="number" minlength="-90" maxlength="90" class="form-control" name="center_lat" required [(ngModel)]="newTrip.center_lat" name="center_lat" #center_lat="ngModel">
+    <div *ngIf="center_lat.errors && (center_lat.dirty || center_lat.touched)" class="alert alert-danger">
+      <div [hidden]="!center_lat.errors.required">
+           Center latitude requires a number between -90 and 90!
+      </div>
+    </div>
   </div>
-  <div>
+  <div class="row">
     <label for="center_lng">Center Longitude</label>
-    <input class="form-control" name="center_lng" [(ngModel)]="newTrip.center_lng">
+    <input type="number" minlength="-180" maxlength="180" class="form-control" required [(ngModel)]="newTrip.center_lng" name="center_lng" #center_lng="ngModel">
+    <div *ngIf="center_lng.errors && (center_lng.dirty || center_lng.touched)" class="alert alert-danger">
+      <div [hidden]="!center_lng.errors.required">
+          Center longitude requires a number between -180 and 180!
+      </div>
+    </div>
   </div>
-  <div>
+  <div class="row">
     <label for="zoom">Zoom Factor</label>
-    <input class="form-control" name="zoom" [(ngModel)]="newTrip.zoom">
+    <input type="number" minlength="1" maxlength="20" class="form-control" required [(ngModel)]="newTrip.zoom" name="zoom" #zoom="ngModel">
+    <div *ngIf="zoom.errors && (zoom.dirty || zoom.touched)" class="alert alert-danger">
+      <div [hidden]="!zoom.errors.required">
+          Zoom requires an integer between 1 and 20!
+      </div>
+      <div [hidden]="!zoom.errors.minlength">
+          Zoom requires an integer greater than or equal to 1!
+      </div>
+    </div>
   </div>
-  <input class="btn btn-primary" type="submit" value="Create">
+  <button type="submit" class="btn btn-primary" [disabled]="!tripForm.form.valid">Create</button>
 </form>
