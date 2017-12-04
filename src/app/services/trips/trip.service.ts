@@ -110,10 +110,11 @@ export class TripService {
     "marker": {
       "name": marker.name,
       "description": marker.description,
-      "lat": marker.lat,
       "lng": marker.lng,
+      "lat": marker.lat,
       "image_url": marker.image_url,
-      "site_url": marker.site_url
+      "poi_url": marker.site_url,
+      "trip_id": this.trip.id
     }
     }
     // Make the delete request to URL, and add the token from Config.

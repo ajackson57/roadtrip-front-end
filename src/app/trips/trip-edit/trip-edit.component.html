@@ -1,3 +1,4 @@
+<p>Minimum fields for a Trip are Name, Center Latitude, Center Longitude, and Zoom.</p>
 <h2>Edit Trip</h2>
 
 <form #tripForm="ngForm" (ngSubmit)="updateTrip(updatedTrip)" class="container">
@@ -46,5 +47,6 @@
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="!tripForm.form.valid">Update Trip</button>
   <a class="btn btn-primary" [routerLink]="['/markers']">View Markers</a>
+  <a class="btn btn-primary" [routerLink]="['/trips']">Cancel</a>
   <!-- <input class="btn btn-primary" type="submit" value="Create"> -->
 </form>

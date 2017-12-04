@@ -26,9 +26,10 @@
       </table>
     </div>
     <div>
-      <a class="btn btn-primary" [routerLink]="['/trips/edit']">Edit Trip</a>
       <a class="btn btn-primary" [routerLink]="['/mapit']">Map Trip</a>
+      <a class="btn btn-primary" [routerLink]="['/trips/edit']">Edit Trip</a>
       <a class="btn btn-primary" (click)='onDelete()'>Delete Trip</a>
+      <a class="btn btn-primary" [routerLink]="['/trips']">Back To Trips</a>
     </div>
     <div class='container'>
        <router-outlet></router-outlet>
