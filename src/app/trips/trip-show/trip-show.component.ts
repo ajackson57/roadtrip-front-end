@@ -26,7 +26,6 @@ export class TripShowComponent implements OnInit {
     }
   }
   onDelete() {
-  	console.log("delete trip");
   	this.tripservice.deleteTrip(this.id)
   			.subscribe(response => {
 			this._router.navigate(["/trips"]);

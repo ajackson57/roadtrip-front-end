@@ -27,7 +27,6 @@ export class MarkerShowComponent implements OnInit {
    }
   }
   onDelete() {
-   console.log("delete marker");
    this.tripservice.deleteMarker(this.id)
        .subscribe(response => {
      this._router.navigate(["/markers"])

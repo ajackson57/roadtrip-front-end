@@ -37,7 +37,6 @@ export class TripNewComponent implements OnInit {
 
   	this.tripService.createTrip(newTrip)
   			.subscribe(response => {
-			console.log(response.json());
 			let trip = response.json();
 			this.router.navigate(["/trips/" + trip.trip.id]);
 		},

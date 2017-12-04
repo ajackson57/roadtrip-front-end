@@ -13,7 +13,6 @@ export class SigninComponent implements OnInit {
   user = <any>{};
 
   constructor( public auth: AuthService) {
-    console.log('Sign-In Component Contructed');
   }
 
   ngOnInit() {

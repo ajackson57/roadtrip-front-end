@@ -35,7 +35,6 @@ export class MarkerEditComponent implements OnInit {
 
     this.tripservice.updateMarker(updatedMarker)
     .subscribe(response => {
-      console.log(response.json());
       let marker = response.json();
       this.router.navigate(["/markers/" + marker.marker.id]);
     },

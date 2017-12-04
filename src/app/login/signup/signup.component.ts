@@ -10,7 +10,6 @@ export class SignupComponent implements OnInit {
   newUser = <any>{};
 
   constructor(public auth: AuthService) {
-    console.log('Sign-Up Component Contructed');
   }
 
   ngOnInit() {
