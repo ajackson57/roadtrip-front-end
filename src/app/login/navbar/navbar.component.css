@@ -2,3 +2,18 @@
   border-radius: 0;
   margin-bottom: 0;
 }
+
+.overlay{
+    background-image: url(http://cdn.skim.gs/images/piae54eupsxhtrfwe5s6/family-road-trip-apps);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    position: relative;
+    width:100%;
+    height: calc(100vh - 4em - 64px);
+    top:0px;
+    left:0px;
+    z-index:10;
+}

@@ -1,4 +1,4 @@
-<div *ngIf="tripservice && tripservice.trip" class="container">
+<div *ngIf="tripservice && tripservice.trip" class="container map-wrapper">
     <agm-map [latitude]="tripservice.trip.center_lat"
              [longitude]="tripservice.trip.center_lng"
              [zoom]="tripservice.trip.zoom"
@@ -18,6 +18,34 @@
          </agm-marker>
         </div>
       </div>
+      <agm-map-directions> </agm-map-directions>
     </agm-map>
+    <label for="marker">Add Marker</label>
+    <input name="marker" type="text" id="autocompleteInput">
+    <input class="btn btn-primary" (click)="updateDirections()" type="submit" value="Update Directions"/>
+    <!-- <a class="btn btn-primary">Back To Trips</a> -->
     <a class="btn btn-primary" [routerLink]="['/trips']">Back To Trips</a>
+    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#map-modal">Display Directions</a>
+    <!-- <a (click)="modal-dialog.open()"><span class="glyphicon glyphicon-trash"></span></a> -->
+<div class="modal" id="map-modal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Directions</h4>
+      </div>
+      <div class="modal-body">
+          <div id="map-canvas-modal"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
 <div>

@@ -8,6 +8,7 @@ import { AuthService } from '../auth/auth.service';
 import { environment } from '../../../environments/environment';
 import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service.js';
 
+declare var google;
 
 @Injectable()
 export class TripService {
@@ -71,7 +72,25 @@ export class TripService {
     return this.http.post(environment.apiOrigin + '/trips', data, config)
   }
 
-
+  populateRoute() {
+    // Create the route from markers
+    let waypoints = []
+    for (let i = 1; i < this.markers.length - 1; i++) {
+      waypoints.push({
+               location: new google.maps.LatLng(this.markers[i].lat,this.markers[i].lng),
+               stopover: true
+             });
+    }
+    let route =
+    {
+      "originlng": this.markers[0].lng,
+      "originlat": this.markers[0].lat,
+      "destinationlng": this.markers[this.markers.length-1].lng,
+      "destinationlat": this.markers[this.markers.length-1].lat,
+      "waypoints": waypoints
+    }
+    return route
+  }
 
   updateTrip(trip) {
     // Create the configuration object to be able to store the Headers > Authentication
@@ -147,7 +166,7 @@ export class TripService {
     config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
 
     // Make the delete request to URL, and add the token from Config.
-    return this.http.delete(environment.apiOrigin + '/markerss/' + id, config)
+    return this.http.delete(environment.apiOrigin + '/markers/' + id, config)
   }
 
   getMarkers() {
